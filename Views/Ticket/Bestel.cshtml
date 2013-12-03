@@ -1,0 +1,60 @@
+﻿@model FestivalSite.Models.Ticket
+
+@{
+    ViewBag.Title = "Bestel";
+}
+
+<h2>Bestel Tickets</h2>
+
+@using (Html.BeginForm("Bestel", "Ticket", FormMethod.Post, new {enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Ticket</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TicketHolder)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TicketHolder)
+            @Html.ValidationMessageFor(model => model.TicketHolder)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TicketHolderEmail)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TicketHolderEmail)
+            @Html.ValidationMessageFor(model => model.TicketHolderEmail)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TicketType)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(m => m.TicketType.Name, new SelectList(FestivalSite.Models.DAL.TicketTypeRepository.GetTicketTypes(), "Name"))
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Amount)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Amount)
+            @Html.ValidationMessageFor(model => model.Amount)
+        </div>
+
+        <p>
+            <input type="submit" value="Bestel" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
