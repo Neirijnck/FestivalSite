@@ -7,34 +7,37 @@
         <meta name="viewport" content="width=device-width" />
         @Styles.Render("~/Content/css")
         @Scripts.Render("~/bundles/modernizr")
+        @Scripts.Render("~/bundles/flat-ui")
     </head>
     <body>
         <header>
             <div class="content-wrapper">
                 <div class="float-left">
-                    <p class="site-title">@Html.ActionLink("your logo here", "Index", "Home")</p>
+                    <p class="site-title">@Html.ActionLink("Festival", "Index", "Home")</p>
                 </div>
                 <div class="float-right">
                     <section id="login">
                         @Html.Partial("_LoginPartial")
                     </section>
-                    <nav>
-                        <ul id="menu">
-                            <li>@Html.ActionLink("Home", "Index", "Home")</li>                       @*artiesten, line up*@
+                    <div class="navbar navbar-default">
+                        <nav class="navbar-collapse collapse navbar-collapse-01">
+                            <ul  class="nav navbar-nav navbar-right">
+                                <li>@Html.ActionLink("Home", "Index", "Home")</li>                       @*artiesten, line up*@
 
-                            @if (Roles.IsUserInRole("Admin")) 
-                            { 
-                            <li>@Html.ActionLink("Tickets", "Index", "Ticket")</li>                     @*ticket overzicht*@
-                            }
+                                @if (Roles.IsUserInRole("Admin"))
+                                {
+                                    <li>@Html.ActionLink("Stand Tickets", "Index", "Ticket")</li>                     @*ticket overzicht*@
+                                }
 
-                            @if (Roles.IsUserInRole("Visitor")|| Roles.IsUserInRole("Admin"))
-                            {
-                            <li>@Html.ActionLink("Bestel Tickets", "Bestel", "Ticket")</li>        @*ticket bestellen*@
-                            }
-                            <li>@Html.ActionLink("About", "About", "Home")</li>                      @*About app*@
-                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>               @*Contact*@
-                        </ul>
-                    </nav>
+                                @if (Roles.IsUserInRole("Visitor") || Roles.IsUserInRole("Admin"))
+                                {
+                                    <li>@Html.ActionLink("Bestel Tickets", "Bestel", "Ticket")</li>        @*ticket bestellen*@
+                                }
+                                <li>@Html.ActionLink("About", "About", "Home")</li>                      @*About app*@
+                                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>               @*Contact*@
+                            </ul>
+                        </nav>
+                    </div>
                 </div>
             </div>
         </header>
@@ -46,7 +49,7 @@
         </div>
         <footer>
             <div class="content-wrapper">
-                <div class="float-left">
+                <div>
                     <p>&copy; @DateTime.Now.Year - Preben Neirijnck</p>
                 </div>
             </div>

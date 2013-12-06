@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
+using WebMatrix.WebData;
 
 namespace FestivalSite.Controllers
 {
@@ -26,11 +28,18 @@ namespace FestivalSite.Controllers
         [HttpPost]
         public ActionResult Bestel(Ticket ticket) 
         {
+            String id = WebSecurity.CurrentUserId.ToString();
+            User u = UserRepository.GetUserById(id);
+            ticket.TicketHolderEmail = u.Email;
             TicketRepository.SaveTicket(ticket);
-            return RedirectToAction("Bestel");
+            return RedirectToAction("TicketOverzicht", new {Email = u.Email });
         }
 
-
+        [Authorize(Roles= "Admin, Visitor")]
+        public ActionResult TicketOverzicht(String email) 
+        {
+            return View(TicketRepository.GetTicketsByEmail(email));
+        }
 
     }
 }

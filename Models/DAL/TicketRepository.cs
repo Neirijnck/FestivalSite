@@ -66,5 +66,24 @@ namespace FestivalSite.Models.DAL
             return affected;
         }
 
+        public static List<Ticket> GetTicketsByEmail(String email) 
+        {
+             String sql = "SELECT * FROM [Ticket] WHERE [TicketHolderEmail]=@email";
+
+            List<Ticket> tickets = new List<Ticket>();
+            DbParameter idPar = Database.AddParameter("@email", email);
+
+            DbDataReader reader = Database.GetData(sql, idPar);
+            if (reader != null && reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    Ticket ticket = Create(reader);
+                    tickets.Add(ticket);
+                }
+            }
+            return tickets;
+        }
+
     }
 }

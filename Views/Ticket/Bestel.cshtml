@@ -6,7 +6,7 @@
 
 <h2>Bestel Tickets</h2>
 
-@using (Html.BeginForm("Bestel", "Ticket", FormMethod.Post, new {enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Bestel", "Ticket", FormMethod.Post, new { enctype = "multipart/form-data", @class = "pure-form pure-form-stacked" }))
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
@@ -15,44 +15,44 @@
         <legend>Ticket</legend>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.TicketHolder)
+            Op naam van:
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.TicketHolder)
+            @Html.TextBoxFor(model => model.TicketHolder, new { @class = "form-control flat input-sm" })
             @Html.ValidationMessageFor(model => model.TicketHolder)
         </div>
 
-        <div class="editor-label">
+        @*<div class="editor-label">
             @Html.LabelFor(model => model.TicketHolderEmail)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.TicketHolderEmail)
             @Html.ValidationMessageFor(model => model.TicketHolderEmail)
-        </div>
+        </div>*@
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.TicketType)
+           Type Ticket:
         </div>
         <div class="editor-field">
             @Html.DropDownListFor(m => m.TicketType.Name, new SelectList(FestivalSite.Models.DAL.TicketTypeRepository.GetTicketTypes(), "Name"))
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Amount)
+            Aantal:
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Amount)
+            @Html.TextBoxFor(model => model.Amount, new { @class = "form-control flat input-sm" })
             @Html.ValidationMessageFor(model => model.Amount)
         </div>
 
         <p>
-            <input type="submit" value="Bestel" />
+            <input type="submit" value="Bestel" class="btn btn-primary btn-wide">
         </p>
     </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Terug", "Index")
 </div>
 
 @section Scripts {

@@ -1,33 +1,33 @@
 ﻿@model FestivalSite.Models.RegisterExternalLoginModel
 @{
-    ViewBag.Title = "Register";
+    ViewBag.Title = "Registreer";
 }
 
 <hgroup class="title">
     <h1>@ViewBag.Title.</h1>
-    <h2>Associate your @ViewBag.ProviderDisplayName account.</h2>
+    <h2>Koppel je @ViewBag.ProviderDisplayName account.</h2>
 </hgroup>
 
-@using (Html.BeginForm("ExternalLoginConfirmation", "Account", new { ReturnUrl = ViewBag.ReturnUrl })) {
+@using (Html.BeginForm("ExternalLoginConfirmation", "Account", new { ReturnUrl = ViewBag.ReturnUrl }))
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
     <fieldset>
         <legend>Association Form</legend>
         <p>
-            You've successfully authenticated with <strong>@ViewBag.ProviderDisplayName</strong>.
-            Please enter a user name for this site below and click the Confirm button to finish
-            logging in.
+            U hebt succesvol geauthenticeerd met <strong>@ViewBag.ProviderDisplayName</strong>.
+            Gelieve hieronder een gebruikersnaam in te voeren voor de site en klik op bevestigen om het inloggen af te ronden.
         </p>
         <ol>
             <li class="name">
-                @Html.LabelFor(m => m.UserName)
-                @Html.TextBoxFor(m => m.UserName)
+                <label>Gebruikersnaam</label>
+                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control flat input-sm" })
                 @Html.ValidationMessageFor(m => m.UserName)
             </li>
         </ol>
         @Html.HiddenFor(m => m.ExternalLoginData)
-        <input type="submit" value="Register" />
+        <input type="submit" value="Registreer" />
     </fieldset>
 }
 

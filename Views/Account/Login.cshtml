@@ -5,43 +5,43 @@
 }
 
 <hgroup class="title">
-    <h1>@ViewBag.Title.</h1>
 </hgroup>
 
 <section id="loginForm">
-<h2>Use a local account to log in.</h2>
-@using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl })) {
+<h2>Aanmelden</h2>
+@using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>Log in Form</legend>
+        <legend>Log in</legend>
         <ol>
             <li>
-                @Html.LabelFor(m => m.UserName)
-                @Html.TextBoxFor(m => m.UserName)
+                <label>Gebruikersnaam</label>
+                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control flat input-sm" })
                 @Html.ValidationMessageFor(m => m.UserName)
             </li>
             <li>
-                @Html.LabelFor(m => m.Password)
-                @Html.PasswordFor(m => m.Password)
+                <label>Wachtwoord</label>
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control flat input-sm" })
                 @Html.ValidationMessageFor(m => m.Password)
             </li>
             <li>
-                @Html.CheckBoxFor(m => m.RememberMe)
-                @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
+                @Html.CheckBoxFor(m => m.RememberMe, new { id = "checkbox1" })
+                <label class="checkbox">Onthoud mij?</label>
             </li>
         </ol>
-        <input type="submit" value="Log in" />
+        <input type="submit" value="Log in" class="btn btn-primary btn-wide" />
     </fieldset>
     <p>
-        @Html.ActionLink("Register", "Register") if you don't have an account.
+        @Html.ActionLink("Registreer","Register") indien je nog geen account hebt.
     </p>
 }
 </section>
 
 <section class="social" id="socialLoginForm">
-    <h2>Use another service to log in.</h2>
+    <h2>Aanmelden met een andere service.</h2>
     @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
 </section>
 

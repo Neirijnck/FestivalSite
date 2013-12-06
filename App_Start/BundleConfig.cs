@@ -23,7 +23,21 @@ namespace FestivalSite
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
+            bundles.Add(new ScriptBundle("~/bundles/flat-ui").Include(
+            "~/Scripts/bootstrap*", "~/Scripts/flatui*", 
+            "~/Scripts/application.js", 
+            "~/Scripts/html5shiv.js",
+            "~/Scripts/icon-font-ie7.js",
+            "~/Scripts/jquery.placeholder.js",
+            "~/Scripts/jquery.stacktable.js",
+            "~/Scripts/jquery.tagsinput.js",
+            "~/Scripts/jquery.ui.touch-punch.min.js",
+            "~/Scripts/jquery-2.0.3.min.js",
+            "~/Scripts/jquery-ui-1.10.3.custom.min.js"
+            ));
+
+            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css", "~/Content/flat-ui.css"));
+
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
                         "~/Content/themes/base/jquery.ui.core.css",
@@ -39,5 +53,6 @@ namespace FestivalSite
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css"));
         }
+
     }
 }

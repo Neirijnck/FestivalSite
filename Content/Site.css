@@ -1,5 +1,5 @@
 ﻿html {
-    background-color: #e2e2e2;
+    background-color: #1abc9c;
     margin: 0;
     padding: 0;
 }
@@ -25,10 +25,6 @@ a {
     a:link, a:visited,
     a:active, a:hover {
         color: #333;
-    }
-
-    a:hover {
-        background-color: #c7d1d6;
     }
 
 header, footer, hgroup,
@@ -95,13 +91,15 @@ h5, h6 {
 ----------------------------------------------------------*/
 .content-wrapper {
     margin: 0 auto;
-    max-width: 960px;
+    max-width: 100%;
 }
 
 #body {
     background-color: #efeeef;
     clear: both;
     padding-bottom: 35px;
+    padding-left:20px;
+    padding-right:20px;
 }
 
     .main-content {
@@ -116,6 +114,8 @@ h5, h6 {
 
 header .content-wrapper {
     padding-top: 20px; 
+    padding-left:20px;
+    padding-right:20px;
 }
 
 footer {
@@ -123,8 +123,11 @@ footer {
     background-color: #e2e2e2;
     font-size: .8em;
     height: 100px;
+    text-align:center;
 }
-
+    footer p {
+        padding:20px;
+    }
 
 /* site title
 ----------------------------------------------------------*/
@@ -328,6 +331,41 @@ aside {
     font-weight: 700;
 }
 
+/*Eigen CSS*/
+#BandBlock {
+    position:relative;
+    width:200px;
+    height:200px;
+    text-align:center;
+}
+
+#BandLink {
+  position:absolute; 
+  width:100%;
+  height:100%;
+  top:0;
+  left: 0;
+
+  /* edit: added z-index */
+  z-index: 1;
+}
+
+#Bands {
+    float:left;
+    list-style:none;
+}
+
+#BandItem {
+    float:left;
+    background-color:white;
+}
+    #BandItem:hover {
+    transition: all 0.3s ease-in-out 0s;
+	background-color: gray;
+    border: 2px solid black;
+    }
+
+
 /* login page */
 #loginForm {
     border-right: solid 2px #c8c8c8;
@@ -449,7 +487,6 @@ textarea {
         width: auto;
     }
 
-    input[type="submit"],
     input[type="button"],
     button {
         background-color: #d3dce0;
@@ -747,10 +784,10 @@ tr.pager td {
     footer {
         text-align: center;
         height: auto;
-        padding: 10px 0;
+        padding: 10px 20px 0px 20px;
     }
 
         footer p {
-            margin: 0;
+            margin: 20px;
         }
 }
