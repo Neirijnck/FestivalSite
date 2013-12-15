@@ -1,21 +1,36 @@
 ﻿html {
-    background-color: #1abc9c;
     margin: 0;
     padding: 0;
+    background-color: #2C3E50;
 }
 
 body {
-    background-color: #fff;
-    border-top: solid 10px #000;
-    color: #333;
+    color: #ecf0f1;
     font-size: .85em;
     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
     margin: 0;
     padding: 0;
 }
 
+    header{
+        background-color:#2C3E50;
+    }
+
+#linkAccount{
+    color:#2C3E50;
+}
+#linkAccount:hover{
+    color:#E82B21;
+}
+#linkAbout{
+    color:#2C3E50;
+}
+#linkAbout:hover{
+    color:#E82B21;
+}
+
 a {
-    color: #333;
+    color: #ECF0F1;
     outline: none;
     padding-left: 3px;
     padding-right: 3px;
@@ -24,7 +39,7 @@ a {
 
     a:link, a:visited,
     a:active, a:hover {
-        color: #333;
+        color: #ECF0F1;
     }
 
 header, footer, hgroup,
@@ -54,9 +69,9 @@ mark {
     visibility: hidden;
 }
 
-h1, h2, h3,
+h1, h2,
 h4, h5, h6 {
-    color: #000;
+    color: #2c3e50;
     margin-bottom: 0;
     padding-bottom: 0;
 }
@@ -71,6 +86,7 @@ h2 {
 
 h3 {
     font-size: 1.2em;
+    color:#ECF0F1;
 }
 
 h4 {
@@ -91,48 +107,52 @@ h5, h6 {
 ----------------------------------------------------------*/
 .content-wrapper {
     margin: 0 auto;
-    max-width: 100%;
+    max-width: 1060px;
 }
 
 #body {
-    background-color: #efeeef;
+    border-top: 15px solid #2C3E50;
+    background-color: #ECF0F1;
     clear: both;
     padding-bottom: 35px;
     padding-left:20px;
     padding-right:20px;
+    min-height:600px;
 }
 
     .main-content {
-        background: url("../Images/accent.png") no-repeat;
+        /*background: url("../Images/accent.png") no-repeat;*/
         padding-left: 10px;
         padding-top: 30px;
     }
 
     .featured + .main-content {
-        background: url("../Images/heroAccent.png") no-repeat;
+        /*background: url("../Images/heroAccent.png") no-repeat;*/
     }
 
 header .content-wrapper {
-    padding-top: 20px; 
+    background-color: #2C3E50;
+    padding-top: 15px; 
     padding-left:20px;
     padding-right:20px;
 }
 
 footer {
     clear: both;
-    background-color: #e2e2e2;
+    background-color: #2C3E50;
     font-size: .8em;
     height: 100px;
     text-align:center;
 }
     footer p {
         padding:20px;
+        color:#ECF0F1;
     }
 
 /* site title
 ----------------------------------------------------------*/
 .site-title {
-    color: #c8c8c8;
+    color: #ecf0f1;
     font-family: Rockwell, Consolas, "Courier New", Courier, monospace;
     font-size: 2.3em;
     margin: 0;
@@ -151,16 +171,19 @@ footer {
 #login {
     display: block;
     font-size: .85em;
-    margin: 0 0 10px;
+    margin: -13px 0 10px;
     text-align: right;
 }
 
     #login a {
-        background-color: #d3dce0;
+        background-color: #E82B21;
         margin-left: 10px;
         margin-right: 3px;
-        padding: 2px 3px;
+        padding: 5px 6px;
         text-decoration: none;
+        color:#ECF0F1;
+        border-radius:0px 0px 4px 4px;
+        font-weight:bold;
     }
 
     #login a.username {
@@ -168,6 +191,7 @@ footer {
         margin: 0;
         padding: 0;
         text-decoration: underline;
+        color: #E82B21;
     }
 
     #login ul {
@@ -203,7 +227,7 @@ ul#menu {
         }
 
         ul#menu li a:hover {
-            color: #333;
+            color: #2C3E50;
             text-decoration: none;
         }
 
@@ -212,7 +236,7 @@ ul#menu {
 ----------------------------------------------------------*/
 /* featured */
 .featured {
-    background-color: #fff;
+    background-color: #ECF0F1;
 }
 
     .featured .content-wrapper {
@@ -227,7 +251,7 @@ ul#menu {
     }
 
         .featured hgroup.title h1, .featured hgroup.title h2 {
-            color: #fff;
+            color: #ECF0F1;
         }
 
         .featured p {
@@ -332,39 +356,243 @@ aside {
 }
 
 /*Eigen CSS*/
+#Search{
+    width:200px;
+}
+
+#SortButtons{
+    margin-top:14px;
+    margin-right:15px;
+}
+
+.smalleButton{
+    width:50px;
+}
+
+#bandtitel{
+    width:100%;
+}
+
+#SuccesvolBesteld{
+    clear:both;
+    width:500px;
+    background-color:#44617d;
+    border:5px solid #2C3E50;
+  border-radius: 4px;
+}
+
+#SuccesvolBesteld h5{
+    font-size:1.3em;
+    margin:15px;
+}
+
+#nieuwsItem{
+    float:left;
+    background-color:#44617d;
+    border:5px solid #2C3E50;
+    border-radius: 4px;
+    margin-bottom:10px;
+    width:700px;
+}
+
+.account {
+color:red;
+}
+
+#nieuwsItem p{
+    margin:15px;
+    font-size:0.94em;
+}
+
+#nieuwsItem h5{
+    font-size:1.3em;
+    margin:15px;
+}
+
+#check{
+    float:left;
+    height:22px;
+    width:22px;
+    margin:25px 20px 20px 20px;
+}
+
+#rss{
+    float:right;
+    height:30px;
+    width:30px;
+}
+
+#facebook {
+    height:30px;
+    width:30px;
+}
+
+#twitter {
+    height:30px;
+    width:30px;
+}
+
+#logolink {
+    margin-top:18px;
+}
+
+#logo {
+    height:80px;
+    width:80px;
+}
+
 #BandBlock {
     position:relative;
-    width:200px;
+    width:300px;
     height:200px;
     text-align:center;
+    overflow:hidden;
+}
+#bandpictureIndex {
+    max-width:500px;
+    height:auto;
+    width:300px;
+    height:200px;
+    border-radius: 6px;
+    z-index:-1;
+    transition: all 0.5s ease;
+    float:left;
 }
 
-#BandLink {
-  position:absolute; 
-  width:100%;
-  height:100%;
-  top:0;
-  left: 0;
-
-  /* edit: added z-index */
-  z-index: 1;
+.zoom-img{
+        -webkit-transition: -webkit-transform 0.2s;
+    -moz-transition: -moz-transform 0.2s;
+    -ms-transition: -ms-transform 0.2s;
+    transition: transform 0.2s;
 }
 
-#Bands {
+.zoom-img:hover{
+        -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+#description {
+    width:400px;
+    margin-left:30px;
+}
+
+#bandpicture {
+max-width:500px;
+max-height:500px;
+  border-radius: 6px;
+}
+
+.eigenList {
     float:left;
     list-style:none;
 }
 
 #BandItem {
     float:left;
-    background-color:white;
+    background-color:#ECF0F1;
+    margin:10px 10px 10px 14px;
+    overflow:hidden;
+    border-radius: 6px;
 }
-    #BandItem:hover {
-    transition: all 0.3s ease-in-out 0s;
-	background-color: gray;
-    border: 2px solid black;
+
+    #BandBlock:hover  #inschuiven{
+    opacity:1;
+    transition: all 0.35s ease-in-out 0s;
+    margin-top:98px;
     }
 
+    .BodyText{
+        color:#2C3E50;
+    }
+
+    #inschuiven{
+        width:250px;
+        height:54px;
+        margin-left:25px;
+        margin-top:169px;
+        background-color:rgba(232,43,33,0.50);
+        position:absolute;
+        z-index:10;
+        text-align:center;
+        vertical-align:central;
+        border-radius: 0px 0px 6px 6px;
+        opacity:0;
+    }
+
+    #BandText{
+    color:#fff;
+    font-size:0.9em;
+    }
+
+    .overzichtsTable{
+        margin-top:15px;
+        margin-bottom:15px;
+        font-size:0.85em;
+        border-radius:5px;
+        border:3px solid #2C3E50;
+    }
+    .overzichtsTable th, td
+{
+        border:3px solid #2C3E50;
+	text-align: center;
+    width:150px;
+}
+
+    #Video{
+        float:left;
+        width:550px;
+        height:400px;
+    }
+    .yt{
+        margin-left:10px;
+        margin-top:51px;
+    border:5px solid #2C3E50;
+    border-radius: 4px;
+    }
+
+    #AllNews{
+        float:left;
+        margin-top:-20px;
+    }
+
+    .readmore{
+        color:#ECF0F1;
+        margin:10px;
+    }
+    .readmore:hover{
+        cursor:pointer;
+        color:#E82B21;
+    }
+
+    #BandNews{
+    clear:both;
+    width:500px;
+    height:136px;
+    overflow:hidden;
+    background-color:#44617d;
+    border:5px solid #2C3E50;
+    border-radius: 4px;
+    margin-bottom:15px;
+    margin-top:15px;
+    }
+
+    #BandNewsTitle{
+        margin-left:10px;
+        margin-top:10px;
+        font-size:1.1em;
+    }
+
+    #BandNewsSummary{
+        font-size:0.8em;
+        margin:10px;
+    }
+
+    #BandNewsSource{
+        font-size:0.75em;
+        margin:10px;
+    }
 
 /* login page */
 #loginForm {
@@ -421,17 +649,38 @@ aside {
 /* contact */
 .contact h3 {
     font-size: 1.2em;
+    margin-left:8px;
+}
+
+.contact header{
+    width:742px;
+    border-radius:3px;
 }
 
 .contact p {
     margin: 5px 0 0 10px;
+    color:#2C3E50;
 }
 
 .contact iframe {
-    border: 1px solid #333;
+    border: 1px solid #2C3E50;
     margin: 5px 0 0 10px;
 }
 
+/*about*/
+
+.about p{
+    color:#2C3E50;
+}
+.about h3{
+    font-size: 1.2em;
+    margin-left:8px;
+}
+
+.about header{
+    width:742px;
+    border-radius:3px;
+}
 /* forms */
 fieldset {
     border: none;
@@ -456,6 +705,7 @@ label {
     display: block;
     font-size: 1.2em;
     font-weight: 600;
+    color:#2C3E50;
 }
 
 label.checkbox {
@@ -464,8 +714,8 @@ label.checkbox {
 
 input, textarea {
     border: 1px solid #e2e2e2;
-    background: #fff;
-    color: #333;
+    background: white;
+    color: #2C3E50;
     font-size: 1.2em;
     margin: 5px 0 6px 0;
     padding: 5px;
@@ -584,7 +834,7 @@ th {
     }
 
     th a:link, th a:visited, th a:active, th a:hover {
-        color: #333;
+        color: #2C3E50;
         font-weight: 600;
         text-decoration: none;
         padding: 0;
@@ -659,18 +909,6 @@ tr.pager td {
             list-style: none;
             margin: 0;
             padding: 0;
-        }
-
-        #login a {
-            background: none;
-            color: #999;
-            font-weight: 600;
-            margin: 2px;
-            padding: 0;
-        }
-
-        #login a:hover {
-            color: #333;
         }
 
     /* menu */
@@ -789,5 +1027,6 @@ tr.pager td {
 
         footer p {
             margin: 20px;
+            color:white;
         }
 }

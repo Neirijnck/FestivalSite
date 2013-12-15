@@ -1,26 +1,27 @@
-﻿@model IEnumerable<FestivalSite.Models.Band>
+﻿@model FestivalSite.ViewModel.HomeVM
 
 @{
     ViewBag.Title = "Home";
 }
 
-<h2>Bandoverzicht</h2>
+<a href="@Url.Action("RSS", "API")">
+    <img id="rss" src="/Images/rss.png" alt="rss" />
+</a>
 
-<ul id="Bands">
+<h4>Laatste Nieuws</h4>
 
-@foreach (var item in Model) {
-    <li id="BandItem">
-        <div id="BandBlock">
-            <p>
-                @Html.DisplayFor(modelItem => item.Name)
-            </p>
-            <p>
-                @Html.DisplayFor(modelItem => item.Picture)
-            </p>
-            <a href="@Url.Action("Details", "Home", new { id = item.Id })"><span id="BandLink"></span></a>
-        </div>
-    </li>
+
+@foreach (var item in Model.AllNews)
+{
+
+    <div id="nieuwsItem">
+        <h5>@Html.DisplayFor(modelItem => item.Title)</h5>
+        <p>@Html.DisplayFor(modelItem => item.Content)</p>
+        <p>@Html.DisplayFor(modelItem => item.Date), @Html.DisplayFor(modelItem => item.Author)</p>
+    </div>
 }
 
-</ul>
+@Scripts.Render("~/bundles/jquery")
+<script>
 
+</script>

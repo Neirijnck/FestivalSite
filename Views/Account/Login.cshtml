@@ -19,23 +19,27 @@
         <ol>
             <li>
                 <label>Gebruikersnaam</label>
-                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control flat input-sm" })
+                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control input-sm", placeholder = "Gebruikersnaam" })
                 @Html.ValidationMessageFor(m => m.UserName)
             </li>
             <li>
                 <label>Wachtwoord</label>
-                @Html.PasswordFor(m => m.Password, new { @class = "form-control flat input-sm" })
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control input-sm", placeholder="Wachtwoord" })
                 @Html.ValidationMessageFor(m => m.Password)
             </li>
-            <li>
-                @Html.CheckBoxFor(m => m.RememberMe, new { id = "checkbox1" })
-                <label class="checkbox">Onthoud mij?</label>
-            </li>
+            @*<li>
+                <div class="form-control">
+                    <label>
+                        @Html.CheckBoxFor(m => m.RememberMe, new { id = "checkbox1" })
+                        <label class="checkbox">Onthoud mij?</label>
+                    </label>
+                </div>
+            </li>*@
         </ol>
         <input type="submit" value="Log in" class="btn btn-primary btn-wide" />
     </fieldset>
-    <p>
-        @Html.ActionLink("Registreer","Register") indien je nog geen account hebt.
+    <p class="BodyText">
+        @Html.ActionLink("Registreer", "Register", routeValues: null, htmlAttributes: new { id = "linkAccount" }) indien je nog geen account hebt.
     </p>
 }
 </section>

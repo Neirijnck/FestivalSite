@@ -9,7 +9,7 @@
 
 <p class="message-success">@ViewBag.StatusMessage</p>
 
-<p>U bent ingelogd als <strong>@User.Identity.Name</strong>.</p>
+<p class="BodyText">U bent ingelogd als <strong>@User.Identity.Name</strong>.</p>
 
 @if (ViewBag.HasLocalPassword)
 {
@@ -23,7 +23,7 @@ else
 <section id="externalLogins">
     @Html.Action("RemoveExternalLogins")
 
-    <h3>Voeg een externe login toe.</h3>
+    <h4>Voeg een externe login toe.</h4>
     @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
 </section>
 

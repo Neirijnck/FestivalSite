@@ -13,7 +13,7 @@
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
-    <fieldset>
+    <fieldset class="BodyText">
         <legend>Association Form</legend>
         <p>
             U hebt succesvol geauthenticeerd met <strong>@ViewBag.ProviderDisplayName</strong>.
@@ -22,7 +22,7 @@
         <ol>
             <li class="name">
                 <label>Gebruikersnaam</label>
-                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control flat input-sm" })
+                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control input-sm" })
                 @Html.ValidationMessageFor(m => m.UserName)
             </li>
         </ol>

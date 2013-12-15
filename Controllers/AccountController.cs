@@ -41,7 +41,7 @@ namespace FestivalSite.Controllers
             }
 
             // If we got this far, something failed, redisplay form
-            ModelState.AddModelError("", "The user name or password provided is incorrect.");
+            ModelState.AddModelError("", "De gebruikersnaam of het wachtwoord is niet correct.");
             return View(model);
         }
 
@@ -129,9 +129,9 @@ namespace FestivalSite.Controllers
         public ActionResult Manage(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
-                message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
-                : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
-                : message == ManageMessageId.RemoveLoginSuccess ? "The external login was removed."
+                message == ManageMessageId.ChangePasswordSuccess ? "Uw wachtwoord is gewijzigd."
+                : message == ManageMessageId.SetPasswordSuccess ? "Uw wachtwoord is opgeslaan."
+                : message == ManageMessageId.RemoveLoginSuccess ? "De externe login is verwijderd."
                 : "";
             ViewBag.HasLocalPassword = OAuthWebSecurity.HasLocalAccount(WebSecurity.GetUserId(User.Identity.Name));
             ViewBag.ReturnUrl = Url.Action("Manage");
@@ -169,7 +169,7 @@ namespace FestivalSite.Controllers
                     }
                     else
                     {
-                        ModelState.AddModelError("", "The current password is incorrect or the new password is invalid.");
+                        ModelState.AddModelError("", "Het huidige wachtwoord is incorrect, of het nieuwe is niet geldig.");
                     }
                 }
             }
@@ -192,7 +192,7 @@ namespace FestivalSite.Controllers
                     }
                     catch (Exception)
                     {
-                        ModelState.AddModelError("", String.Format("Unable to create local account. An account with the name \"{0}\" may already exist.", User.Identity.Name));
+                        ModelState.AddModelError("", String.Format("Kon geen lokaal account maken. Een account met de naam \"{0}\" kan al bestaan.", User.Identity.Name));
                     }
                 }
             }
@@ -272,7 +272,7 @@ namespace FestivalSite.Controllers
                     if (user == null)
                     {
                         // Insert name into the profile table
-                        db.UserProfiles.Add(new UserProfile { UserName = model.UserName });
+                        db.UserProfiles.Add(new UserProfile { UserName = model.UserName, Email = model.UserName});
                         db.SaveChanges();
 
                         OAuthWebSecurity.CreateOrUpdateAccount(provider, providerUserId, model.UserName);
@@ -284,7 +284,7 @@ namespace FestivalSite.Controllers
                     }
                     else
                     {
-                        ModelState.AddModelError("UserName", "User name already exists. Please enter a different user name.");
+                        ModelState.AddModelError("UserName", "Gebruikersnaam bestaat al. Gelieve een andere te kiezen.");
                     }
                 }
             }

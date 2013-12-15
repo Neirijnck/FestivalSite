@@ -1,39 +1,44 @@
 ﻿@model IEnumerable<FestivalSite.Models.Ticket>
 
 @{
-    ViewBag.Title = "TicketOverzicht";
+    ViewBag.Title = "Overzicht Tickets";
 }
 
 <h2>Overzicht bestelde tickets</h2>
 
+<div id="SuccesvolBesteld">
+    <img id="check" src="/Images/check.png" alt="Check" />
+    <h5>Tickets werden succesvol besteld.</h5>
+</div>
+    <table class="overzichtsTable BodyText">
+        <tr>
+            <th>
+                Naam
+            </th>
+            <th>
+                Ticket
+            </th>
+            <th>
+                Aantal
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TicketHolder)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TicketType.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+            </tr>
+        }
+
+    </table>
 <p>
-    @Html.ActionLink("Bestel nog tickets", "Bestel")
+    @Html.ActionLink("Bestel nog tickets", "Bestel", "Ticket", new { @class = "btn btn-primary btn-wide" })
 </p>
-<table>
-    <tr>
-        <th>
-            Naam
-        </th>
-        <th>
-            Ticket
-        </th>
-        <th>
-            Aantal
-        </th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.TicketHolder)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TicketType.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Amount)
-        </td>
-    </tr>
-}
-
-</table>

@@ -11,14 +11,14 @@
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
-    <fieldset>
+    <fieldset class="BodyText">
         <legend>Ticket</legend>
 
         <div class="editor-label">
             Op naam van:
         </div>
         <div class="editor-field">
-            @Html.TextBoxFor(model => model.TicketHolder, new { @class = "form-control flat input-sm" })
+            @Html.TextBoxFor(model => model.TicketHolder, new { @class = "form-control input-sm", placeholder = "Naam" })
             @Html.ValidationMessageFor(model => model.TicketHolder)
         </div>
 
@@ -34,14 +34,14 @@
            Type Ticket:
         </div>
         <div class="editor-field">
-            @Html.DropDownListFor(m => m.TicketType.Name, new SelectList(FestivalSite.Models.DAL.TicketTypeRepository.GetTicketTypes(), "Name"))
+            @Html.DropDownListFor(m => m.TicketType.Name, new SelectList(FestivalSite.Models.DAL.TicketTypeRepository.GetTicketTypes(), "Name"), new { @class = "form-control" })
         </div>
 
         <div class="editor-label">
             Aantal:
         </div>
         <div class="editor-field">
-            @Html.TextBoxFor(model => model.Amount, new { @class = "form-control flat input-sm" })
+            @Html.TextBoxFor(model => model.Amount, new { @class = "form-control input-sm", placeholder = "Aantal" })
             @Html.ValidationMessageFor(model => model.Amount)
         </div>
 
@@ -51,9 +51,6 @@
     </fieldset>
 }
 
-<div>
-    @Html.ActionLink("Terug", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

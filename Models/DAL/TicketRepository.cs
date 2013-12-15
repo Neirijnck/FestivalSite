@@ -25,6 +25,7 @@ namespace FestivalSite.Models.DAL
                     tickets.Add(ticket);
                 }
             }
+            reader.Close();
             return tickets;
         }
 
@@ -82,6 +83,7 @@ namespace FestivalSite.Models.DAL
                     tickets.Add(ticket);
                 }
             }
+            reader.Close();
             return tickets;
         }
 

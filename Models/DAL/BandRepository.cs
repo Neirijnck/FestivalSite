@@ -13,6 +13,7 @@ namespace FestivalSite.Models.DAL
         {
             String sql = "SELECT * FROM [Band]";
 
+            List<Genre> genres = GenreRepository.GetGenres();
             List<Band> bands = new List<Band>();
 
             DbDataReader reader = Database.GetData(sql, null);
@@ -21,10 +22,11 @@ namespace FestivalSite.Models.DAL
                 while (reader.Read())
                 {
                      Band band = Create(reader);
-
+                     band.Genres = GenreRepository.GetGenresByBand(genres, band.Id);
                      bands.Add(band);
                 }
             }
+            reader.Close();
             return bands;
         }
 
@@ -43,6 +45,8 @@ namespace FestivalSite.Models.DAL
         public static Band FindById(String bandId) 
         {
             String sql = "SELECT * FROM [Band] WHERE [Id]=@Id";
+
+            List<Genre> genres = GenreRepository.GetGenres();
             DbParameter idPar = Database.AddParameter("@Id", bandId);
  
             DbDataReader reader = Database.GetData(sql, idPar);
@@ -51,12 +55,90 @@ namespace FestivalSite.Models.DAL
                 while (reader.Read())
                 {
                     Band band = Create(reader);
+                    band.Genres = GenreRepository.GetGenresByBand(genres, band.Id);
                     return band;
                 }
             }
+            reader.Close();
             return null;
         }
-        
-    
+
+        public static List<Band> GetBandsOrderByName()
+        {
+            String sql = "SELECT * FROM [Band] ORDER BY NAME";
+
+            List<Genre> genres = GenreRepository.GetGenres();
+            List<Band> bands = new List<Band>();
+
+            DbDataReader reader = Database.GetData(sql, null);
+            if (reader != null && reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    Band band = Create(reader);
+                    band.Genres = GenreRepository.GetGenresByBand(genres, band.Id);
+                    bands.Add(band);
+                }
+            }
+            reader.Close();
+            return bands;
+        }
+
+        public static List<Band> GetBandsOrderByDate()
+        {
+            String sql = "SELECT * FROM [Band] INNER JOIN LineUp ON Band.Id = LineUp.Band ORDER BY Date,[From]";
+
+            List<Genre> genres = GenreRepository.GetGenres();
+            List<Band> bands = new List<Band>();
+
+            DbDataReader reader = Database.GetData(sql, null);
+            if (reader != null && reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    Band band = Create(reader);
+                    band.Genres = GenreRepository.GetGenresByBand(genres, band.Id);
+                    bands.Add(band);
+                }
+            }
+            reader.Close();
+            return bands;
+        }
+
+        public static List<Band> GetBandsOrderByDateDesc()
+        {
+            String sql = "SELECT * FROM [Band] INNER JOIN LineUp ON Band.Id = LineUp.Band ORDER BY Date desc,[From]";
+
+            List<Genre> genres = GenreRepository.GetGenres();
+            List<Band> bands = new List<Band>();
+
+            DbDataReader reader = Database.GetData(sql, null);
+            if (reader != null && reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    Band band = Create(reader);
+                    band.Genres = GenreRepository.GetGenresByBand(genres, band.Id);
+                    bands.Add(band);
+                }
+            }
+            reader.Close();
+            return bands;
+        }
+
+        public static List<Band> GetBandsByString(String search)
+        {
+            List<Band> bands = BandRepository.GetBands();
+            List<Band> ListFoundBands = new List<Band>();
+            foreach (Band band in bands)
+            {
+                if (band.Name.ToUpper().Contains(search.ToUpper()))
+                {
+                    ListFoundBands.Add(band);
+                }
+            }
+            return ListFoundBands;
+        }
+
         }
     }

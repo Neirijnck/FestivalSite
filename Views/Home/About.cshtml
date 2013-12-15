@@ -6,28 +6,18 @@
     <h1>@ViewBag.Title.</h1>
 </hgroup>
 
-<article>
+<article class="about">
+    <header>
+        <h3>Welkom</h3>
+    </header>
     <p>
         Welkom op de website van onze festivalplanner. Als klant kunt u hier tickets bestellen voor het festival, alsook een overzicht van al je reeds bestelde tickets.
     </p>
 
+    <header>
+        <h3>Lineup & Bands</h3>
+    </header>
     <p>
-        Use this area to provide additional information.
-    </p>
-
-    <p>
-        Use this area to provide additional information.
+        Via de pagina @Html.ActionLink("Bands", "Bands", "Home", routeValues: null, htmlAttributes: new { id = "linkAbout" }) kunt u een overzicht te zien krijgen van alles bands of artiesten die verwacht worden. Hierbij staat ook de dag en de plaats van hun optreden.
     </p>
 </article>
-
-<aside>
-    <h3>Aside Title</h3>
-    <p>
-        Use this area to provide additional information.
-    </p>
-    <ul>
-        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-        <li>@Html.ActionLink("About", "About", "Home")</li>
-        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-    </ul>
-</aside>

@@ -17,19 +17,19 @@
         <ol>
             <li>
                 <label>Gebruikersnaam</label>
-                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control flat input-sm" })
+                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control input-sm", placeholder = "Gebruikersnaam" })
             </li>
             <li>
                 <label>Email</label>
-                @Html.TextBoxFor(m => m.Email, new { @class = "form-control flat input-sm" })
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control input-sm", placeholder = "Email" })
             </li>
             <li>
                 <label>Wachtwoord</label>
-                @Html.PasswordFor(m => m.Password, new { @class = "form-control flat input-sm" })
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control input-sm", placeholder = "Wachtwoord" })
             </li>
             <li>
                 <label>Bevestig Wachtwoord</label>
-                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control flat input-sm" })
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control input-sm", placeholder = "Bevestig Wachtwoord" })
             </li>
         </ol>
         <input type="submit" value="Registreer" class="btn btn-primary btn-wide" />

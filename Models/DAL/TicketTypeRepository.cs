@@ -54,6 +54,7 @@ namespace FestivalSite.Models.DAL
                     return ticketType;
                 }
             }
+            reader.Close();
             return null;
         }
 
@@ -71,6 +72,7 @@ namespace FestivalSite.Models.DAL
                     return ticketType;
                 }
             }
+            reader.Close();
             return null;
         }
 

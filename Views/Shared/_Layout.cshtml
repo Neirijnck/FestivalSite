@@ -4,6 +4,7 @@
         <meta charset="utf-8" />
         <title>@ViewBag.Title - Festival Site</title>
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
         <meta name="viewport" content="width=device-width" />
         @Styles.Render("~/Content/css")
         @Scripts.Render("~/bundles/modernizr")
@@ -13,7 +14,12 @@
         <header>
             <div class="content-wrapper">
                 <div class="float-left">
-                    <p class="site-title">@Html.ActionLink("Festival", "Index", "Home")</p>
+                    <div id="logolink">
+                        <a href="@Url.Action("Index", "Home")">
+                            <img id="logo" class="float-left" src="/Images/logo.png" alt="Logo" />
+                            <p class="site-title float-left">Festival</p>
+                        </a>
+                    </div>
                 </div>
                 <div class="float-right">
                     <section id="login">
@@ -22,19 +28,22 @@
                     <div class="navbar navbar-default">
                         <nav class="navbar-collapse collapse navbar-collapse-01">
                             <ul  class="nav navbar-nav navbar-right">
-                                <li>@Html.ActionLink("Home", "Index", "Home")</li>                       @*artiesten, line up*@
+                                <li>@Html.ActionLink("Home", "Index", "Home", routeValues: null, htmlAttributes: new { @class = "btn btn-primary" })</li>                       @*artiesten, line up*@
+
+                                <li>@Html.ActionLink("Bands", "Bands", "Home", routeValues: null, htmlAttributes: new { @class = "btn btn-primary" })</li> 
 
                                 @if (Roles.IsUserInRole("Admin"))
                                 {
-                                    <li>@Html.ActionLink("Stand Tickets", "Index", "Ticket")</li>                     @*ticket overzicht*@
+                                    <li>@Html.ActionLink("Stand Tickets", "Index", "Ticket", routeValues: null, htmlAttributes: new { @class = "btn btn-primary" })
+                                </li>                     @*ticket overzicht*@
                                 }
 
                                 @if (Roles.IsUserInRole("Visitor") || Roles.IsUserInRole("Admin"))
                                 {
-                                    <li>@Html.ActionLink("Bestel Tickets", "Bestel", "Ticket")</li>        @*ticket bestellen*@
+                                    <li>@Html.ActionLink("Bestel Tickets", "Bestel", "Ticket", routeValues: null, htmlAttributes: new { @class = "btn btn-primary" })</li>        @*ticket bestellen*@
                                 }
-                                <li>@Html.ActionLink("About", "About", "Home")</li>                      @*About app*@
-                                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>               @*Contact*@
+                                <li>@Html.ActionLink("About", "About", "Home", routeValues: null, htmlAttributes: new { @class = "btn btn-primary" })</li>                      @*About app*@
+                                <li>@Html.ActionLink("Contact", "Contact", "Home", routeValues: null, htmlAttributes: new { @class = "btn btn-primary" })</li>               @*Contact*@
                             </ul>
                         </nav>
                     </div>

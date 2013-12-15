@@ -24,13 +24,7 @@ namespace FestivalSite
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/flat-ui").Include(
-            "~/Scripts/bootstrap*", "~/Scripts/flatui*", 
-            "~/Scripts/application.js", 
-            "~/Scripts/html5shiv.js",
             "~/Scripts/icon-font-ie7.js",
-            "~/Scripts/jquery.placeholder.js",
-            "~/Scripts/jquery.stacktable.js",
-            "~/Scripts/jquery.tagsinput.js",
             "~/Scripts/jquery.ui.touch-punch.min.js",
             "~/Scripts/jquery-2.0.3.min.js",
             "~/Scripts/jquery-ui-1.10.3.custom.min.js"

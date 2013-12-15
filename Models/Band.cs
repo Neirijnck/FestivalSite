@@ -16,5 +16,6 @@ namespace FestivalSite.Models
         public String Picture { get; set; }
         public String Twitter { get; set; }
         public String Facebook { get; set; }
+        public List<Genre> Genres { get; set; }
     }
 }

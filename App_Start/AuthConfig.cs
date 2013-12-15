@@ -18,9 +18,9 @@ namespace FestivalSite
             //    clientId: "",
             //    clientSecret: "");
 
-            //OAuthWebSecurity.RegisterTwitterClient(
-            //    consumerKey: "",
-            //    consumerSecret: "");
+            OAuthWebSecurity.RegisterTwitterClient(
+                consumerKey: "xgNSKlSLd2QkkPR2rr3LOA",
+                consumerSecret: "FzLckpXUb9ljFskJznu6kh95wwLNldPxo9oDkMu8rk");
 
             OAuthWebSecurity.RegisterFacebookClient(
                 appId: "446732358781900",

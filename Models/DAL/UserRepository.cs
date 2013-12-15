@@ -24,6 +24,7 @@ namespace FestivalSite.Models.DAL
                     return user;
                 }
             }
+            reader.Close();
             return null;
         }
 
