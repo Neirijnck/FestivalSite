@@ -73,7 +73,7 @@
 
             //console.log(name);
 
-            $('#AllNews').append('<div id="BandNews"><h5 id="BandNewsTitle">' + name + '</h5><a class="readmore">Lees meer</a><p id="BandNewsSummary">' + summary + '</p><p id="BandNewsSource">' + date + ', <a href="' + bron + '">Bron</a></p></div>');
+            $('#AllNews').append('<div id="BandNews"><h5 id="BandNewsTitle">' + name + '</h5><p class="readmore">Lees meer</p><p id="BandNewsSummary">' + summary + '</p><p id="BandNewsSource">' + date + ', <a href="' + bron + '">Bron</a></p></div>');
         }
     });
 
@@ -113,21 +113,22 @@
             $('#Video').append('<iframe class="yt" src="' + film_url + '" width="540" height="296" frameborder="0"></iframe>');
         }
     });
-</script>
+    </script>
 <script>
-    $('a.readmore').click(function () {
-        console.log('YES');
-        if ($('#BandNewsSummary').css('height') != '136px') {
-            $('#BandNewsSummary').stop().animate({ height: '136px' }, 200);
-            $(this).text('Lees meer');
-        }
-        else {
-            $('#BandNewsSummary').css({ height: '100%' });
-            var xx = $('#BandNewsSummary').height();
-            $('#BandNewsSummary').css({ height: '136px' });
-            $('#BandNewsSummary').stop().animate({ height: '500px' }, 400);
+    $(document).ready(function(){
+        $('#BandNews').after('Lees Meer')
+ 
+        $('p.readmore').live('click', function () {
 
-            $(this).text('Minder...');
-        }
+            $(this).prev().slideToggle(function () {
+             $(this).next('p.readmore').text(function (index, text) {
+                 return (text == 'Lees meer' ? 'Minder...' : 'Lees meer');
+
+             });
+         });
+ 
+         return false;
+     });
+ 
     });
 </script>

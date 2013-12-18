@@ -10,7 +10,6 @@
 
 <h4>Laatste Nieuws</h4>
 
-
 @foreach (var item in Model.AllNews)
 {
 
@@ -20,6 +19,9 @@
         <p>@Html.DisplayFor(modelItem => item.Date), @Html.DisplayFor(modelItem => item.Author)</p>
     </div>
 }
+
+    <a class="twitter-timeline" href="https://twitter.com/FestivalManage" data-widget-id="412240082557341696">Tweets van FestivalManager</a>
+    <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
 
 @Scripts.Render("~/bundles/jquery")
 <script>

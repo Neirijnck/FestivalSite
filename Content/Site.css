@@ -360,6 +360,15 @@ aside {
     width:200px;
 }
 
+.about p{
+    margin-left:10px;
+}
+
+.twitter-timeline{
+    width:330px;
+    margin-left:20px;
+}
+
 #SortButtons{
     margin-top:14px;
     margin-right:15px;
@@ -392,7 +401,7 @@ aside {
     border:5px solid #2C3E50;
     border-radius: 4px;
     margin-bottom:10px;
-    width:700px;
+    width:690px;
 }
 
 .account {
@@ -560,6 +569,7 @@ max-height:500px;
     .readmore{
         color:#ECF0F1;
         margin:10px;
+    transition: all 0.2s ease-in-out 0s;
     }
     .readmore:hover{
         cursor:pointer;

@@ -28,14 +28,13 @@
                     <div class="navbar navbar-default">
                         <nav class="navbar-collapse collapse navbar-collapse-01">
                             <ul  class="nav navbar-nav navbar-right">
-                                <li>@Html.ActionLink("Home", "Index", "Home", routeValues: null, htmlAttributes: new { @class = "btn btn-primary" })</li>                       @*artiesten, line up*@
+                                <li>@Html.ActionLink("Home", "Index", "Home", routeValues: null, htmlAttributes: new { @class = "btn btn-primary" })</li>      @*Home*@                 
 
-                                <li>@Html.ActionLink("Bands", "Bands", "Home", routeValues: null, htmlAttributes: new { @class = "btn btn-primary" })</li> 
+                                <li>@Html.ActionLink("Bands", "Bands", "Home", routeValues: null, htmlAttributes: new { @class = "btn btn-primary" })</li>  @*artiesten, line up*@
 
                                 @if (Roles.IsUserInRole("Admin"))
                                 {
-                                    <li>@Html.ActionLink("Stand Tickets", "Index", "Ticket", routeValues: null, htmlAttributes: new { @class = "btn btn-primary" })
-                                </li>                     @*ticket overzicht*@
+                                    <li>@Html.ActionLink("Stand Tickets", "Index", "Ticket", routeValues: null, htmlAttributes: new { @class = "btn btn-primary" })</li>                     @*ticket overzicht*@
                                 }
 
                                 @if (Roles.IsUserInRole("Visitor") || Roles.IsUserInRole("Admin"))
