@@ -73,7 +73,7 @@
 
             //console.log(name);
 
-            $('#AllNews').append('<div id="BandNews"><h5 id="BandNewsTitle">' + name + '</h5><p class="readmore">Lees meer</p><p id="BandNewsSummary">' + summary + '</p><p id="BandNewsSource">' + date + ', <a href="' + bron + '">Bron</a></p></div>');
+            $('#AllNews').append('<div id="BandNews"><h5 id="BandNewsTitle">' + name + '</h5><p id="BandNewsSummary">' + summary + '</p><p id="BandNewsSource">' + date + ', <a href="' + bron + '">Bron</a></p></div>');
         }
     });
 
@@ -114,21 +114,3 @@
         }
     });
     </script>
-<script>
-    $(document).ready(function(){
-        $('#BandNews').after('Lees Meer')
- 
-        $('p.readmore').live('click', function () {
-
-            $(this).prev().slideToggle(function () {
-             $(this).next('p.readmore').text(function (index, text) {
-                 return (text == 'Lees meer' ? 'Minder...' : 'Lees meer');
-
-             });
-         });
- 
-         return false;
-     });
- 
-    });
-</script>

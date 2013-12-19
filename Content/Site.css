@@ -356,8 +356,47 @@ aside {
 }
 
 /*Eigen CSS*/
+.rslides {
+  position: relative;
+  list-style: none;
+  overflow: hidden;
+  width: 80%;
+  height:380px;
+  padding: 0;
+  margin: 0 auto;
+  }
+
+.rslides li {
+  -webkit-backface-visibility: hidden;
+  position: absolute;
+  display: none;
+  width: 100%;
+  left: 10%;
+  top: 0;
+  }
+
+.rslides li:first-child {
+  position: relative;
+  display: block;
+  float: left;
+  }
+
+.rslides img {
+  display: block;
+  height: auto;
+  float: left;
+  width: 80%;
+  height:80%;
+  max-height:400px;
+  max-width:800px;
+  }
+
 #Search{
     width:200px;
+}
+
+.wrapper{
+    text-align:center;
 }
 
 .about p{

@@ -8,6 +8,16 @@
     <img id="rss" src="/Images/rss.png" alt="rss" />
 </a>
 
+@*Image Gallery*@
+<div class="wrapper ">
+    <ul class="rslides">
+        @foreach (var item in Model.AllBands)
+{
+    <li><a href="@Url.Action("Details", "Home", new { id = item.Id })"><img width="500" height="370" src="@item.Picture" alt="@item.Name"></a></li>
+}
+    </ul>
+</div>
+
 <h4>Laatste Nieuws</h4>
 
 @foreach (var item in Model.AllNews)
@@ -23,7 +33,33 @@
     <a class="twitter-timeline" href="https://twitter.com/FestivalManage" data-widget-id="412240082557341696">Tweets van FestivalManager</a>
     <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
 
-@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jquery");
+@section Scripts
+{
+    <script src="@Url.Content("~/Scripts/responsiveslides.min.js")"></script>
+}
 <script>
+    $(document).ready(function () {
 
+        $(".rslides").responsiveSlides(
+            {
+                auto: true,
+                speed: 600,
+                pauseControls: true,
+                nav: true,
+                random: true,
+                prevText: "Vorige",
+                nextText: "Volgende"
+            });
+
+        $('.rslides_nav').addClass("btn");
+        $('.rslides_nav').addClass("btn-primary");
+        $('.rslides_nav').addClass("smalleButton");
+        $('.rslides_nav').css("top", "10px");
+        $('.rslides_nav').css("margin-left", "5px");
+        $('.rslides_nav').css("margin-right", "5px");
+        $('.rslides_nav').css("position", "relative");
+        $('.rslides_nav').css("z-index", "50");
+
+    });
 </script>
