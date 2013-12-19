@@ -13,7 +13,7 @@
     <ul class="rslides">
         @foreach (var item in Model.AllBands)
 {
-    <li><a href="@Url.Action("Details", "Home", new { id = item.Id })"><img width="500" height="370" src="@item.Picture" alt="@item.Name"></a></li>
+    <li><a href="@Url.Action("Details", "Home", new { id = item.Id })"><img width="500" height="370" src="../../Assets/@item.Picture" alt="@item.Name"></a></li>
 }
     </ul>
 </div>

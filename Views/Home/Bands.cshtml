@@ -26,7 +26,7 @@
         <li id="BandItem">
             <div id="BandBlock" class="zoom-img">
                 <a href="@Url.Action("Details", "Home", new { id = item.Id })">
-                    <img id="bandpictureIndex" src="@Url.Encode(item.Picture)" alt="@item.Name" />
+                    <img id="bandpictureIndex" src="../Assets/@item.Picture" alt="@item.Name" />
                     @*<p>
                             @Html.DisplayFor(modelItem => item.Picture)
                         </p>*@

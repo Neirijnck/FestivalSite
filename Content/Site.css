@@ -360,10 +360,13 @@ aside {
   position: relative;
   list-style: none;
   overflow: hidden;
-  width: 80%;
-  height:380px;
+  width: 90%;
+  height:450px;
   padding: 0;
   margin: 0 auto;
+  margin-top:15px;
+    border:5px solid #2C3E50;
+  border-radius: 4px;
   }
 
 .rslides li {
@@ -387,8 +390,8 @@ aside {
   float: left;
   width: 80%;
   height:80%;
-  max-height:400px;
-  max-width:800px;
+  max-height:600px;
+  max-width:900px;
   }
 
 #Search{
@@ -605,20 +608,23 @@ max-height:500px;
         margin-top:-20px;
     }
 
-    .readmore{
+    .pull-me{
         color:#ECF0F1;
         margin:10px;
     transition: all 0.2s ease-in-out 0s;
     }
-    .readmore:hover{
+    .pull-me:hover{
         cursor:pointer;
         color:#E82B21;
+    }
+
+    .detailsKnop{
+        margin-left:12px;
     }
 
     #BandNews{
     clear:both;
     width:500px;
-    height:136px;
     overflow:hidden;
     background-color:#44617d;
     border:5px solid #2C3E50;

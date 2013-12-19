@@ -10,7 +10,7 @@
     <legend>Band</legend>
 
     <div class="display-field float-left">
-        <img id="bandpicture" src="../@Model.Picture" alt="@Model.Name" />
+        <img id="bandpicture" src="../../Assets/@Model.Picture" alt="@Model.Name" />
         @*@Html.DisplayFor(model => model.Picture)*@
     </div>
     <div class="display-field float-left" id="description">
@@ -50,7 +50,7 @@
 </div>
 
 <p>
-    @Html.ActionLink("Terug", "Bands", "Home", new { @class = "btn btn-primary btn-wide" })
+    @Html.ActionLink("Terug", "Bands", "Home", new { @class = "btn btn-primary btn-wide detailsKnop" })
 </p>
 @Scripts.Render("~/bundles/jquery")
 <script>
@@ -73,7 +73,7 @@
 
             //console.log(name);
 
-            $('#AllNews').append('<div id="BandNews"><h5 id="BandNewsTitle">' + name + '</h5><p id="BandNewsSummary">' + summary + '</p><p id="BandNewsSource">' + date + ', <a href="' + bron + '">Bron</a></p></div>');
+            $('#AllNews').append('<div id="BandNews"><h5 id="BandNewsTitle">' + name + '</h5><p class="pull-me">Lees meer</p><p id="BandNewsSummary" style="display:none">' + summary + '</p><p style="display:none" id="BandNewsSource">' + date + ', <a style="display:none" href="' + bron + '">Bron</a></p></div>');
         }
     });
 
@@ -112,5 +112,28 @@
         if (site == "dailymotion.com") {
             $('#Video').append('<iframe class="yt" src="' + film_url + '" width="540" height="296" frameborder="0"></iframe>');
         }
+    });
+
+    $(document).ready(function () {
+        $('.pull-me').live("click", function ()
+        {
+            $(this).slideToggle('slow');
+
+            if ($(this).next().css("display") != "none")
+            {
+                $(this).text("Lees minder");
+                $(this).next().css("display", "none");
+                $(this).next().next().css("display", "none");
+                $(this).next().next().next().css("display", "none");
+            }
+            else
+            {
+                $(this).text("Lees meer");
+                $(this).next().css("display", "block");
+                $(this).next().next().css("display", "block");
+                $(this).next().next().next().css("display", "block");
+            }
+
+        });
     });
     </script>
