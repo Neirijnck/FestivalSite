@@ -76,5 +76,26 @@ namespace FestivalSite.Models.DAL
             return null;
         }
 
+        public static int GetAmountAvailableTicketsByType(Ticket Ticket) 
+        {
+            String sql = "SELECT AvailableTickets FROM [TicketType] WHERE Id = @Id";
+
+            TicketType type = TicketTypeRepository.getTicketTypeByName(Ticket.TicketType.Name);
+
+            DbParameter idPar = Database.AddParameter("@Id", type.Id);
+
+            DbDataReader reader = Database.GetData(sql, idPar);
+            if (reader != null && reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    int AvailableTickets = int.Parse(reader["AvailableTickets"].ToString());
+                    return AvailableTickets;
+                }
+            }
+            reader.Close();
+            return 0;
+        }
+
     }
 }

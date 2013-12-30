@@ -21,6 +21,7 @@ namespace FestivalSite.Models.DAL
                 while (reader.Read())
                 {
                     User user = Create(reader);
+                    reader.Close();
                     return user;
                 }
             }

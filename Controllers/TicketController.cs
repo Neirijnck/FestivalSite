@@ -28,17 +28,33 @@ namespace FestivalSite.Controllers
         [HttpPost]
         public ActionResult Bestel(Ticket ticket) 
         {
-            String id = WebSecurity.CurrentUserId.ToString();
-            User u = UserRepository.GetUserById(id);
-            ticket.TicketHolderEmail = u.Email;
-            TicketRepository.SaveTicket(ticket);
-            return RedirectToAction("TicketOverzicht", new {Email = u.Email });
+            //Controle of er nog tickets beschikbaar zijn
+            int availableTickets = TicketTypeRepository.GetAmountAvailableTicketsByType(ticket);
+            if (ticket.Amount > availableTickets)
+            {
+                return RedirectToAction("BestelFout", new { AvailableTickets = availableTickets });
+            }
+            else
+            {
+                String id = WebSecurity.CurrentUserId.ToString();
+                User u = UserRepository.GetUserById(id);
+                ticket.TicketHolderEmail = u.Email;
+                TicketRepository.SaveTicket(ticket);
+                return RedirectToAction("TicketOverzicht", new { Email = u.Email });
+            }
         }
 
         [Authorize(Roles= "Admin, Visitor")]
         public ActionResult TicketOverzicht(String email) 
         {
             return View(TicketRepository.GetTicketsByEmail(email));
+        }
+
+        [Authorize(Roles = "Admin, Visitor")]
+        public ActionResult BestelFout(int availableTickets) 
+        {
+            ViewBag.AvailableTickets = availableTickets;
+            return View();
         }
 
     }

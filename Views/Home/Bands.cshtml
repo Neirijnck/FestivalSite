@@ -8,14 +8,14 @@
 {
     <p class="float-right">
         @Html.TextBox("SearchString", value: null, htmlAttributes: new { id="Search", @class = "form-control input-sm", placeholder = "Zoeken..." })
-        <input type="submit" value="Zoeken" class="btn btn-primary btn-wide smalleButton" />
+        <input id="zoeken" type="submit" value="Zoeken" class="btn btn-primary btn-wide smalleButton" />
     </p>
 }
 
 @*SorteerButtons*@
 <div class="float-right" id="SortButtons">
-    @Html.ActionLink("Op naam", "Bands", new { sortOrder = ViewBag.NameSortParm }, htmlAttributes: new { @class = "btn btn-primary btn-wide smalleButton" })
-    @Html.ActionLink("Op Datum", "Bands", new { sortOrder = ViewBag.DateSortParm }, htmlAttributes: new { @class = "btn btn-primary btn-wide smalleButton" })
+    @Html.ActionLink("Op naam", "Bands", new { sortOrder = ViewBag.NameSortParm }, htmlAttributes: new { @class = "btn btn-primary smalleButton sort" })
+    @Html.ActionLink("Op Datum", "Bands", new { sortOrder = ViewBag.DateSortParm }, htmlAttributes: new { @class = "btn btn-primary smalleButton sort" })
 </div>
 
 <h1 class="float-left" id="bandtitel">Bands.</h1>

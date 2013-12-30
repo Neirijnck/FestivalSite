@@ -25,6 +25,7 @@ namespace FestivalSite.Models.DAL
                 //nog aanpassen
                 Stage stage = StageRepository.GetStageById(lS, IdStage);
                 LineUp lineup = CreateLineUpFromBand(reader, stage);
+                reader.Close();
                 return lineup;
             }
             reader.Close();

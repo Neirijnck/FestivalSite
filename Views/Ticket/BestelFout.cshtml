@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "BestelFout";
+}
+
+<h2>Bestelfout</h2>
+
+<div id="NietSuccesvolBesteld">
+    <img id="error" src="/Images/error.png" alt="Error" />
+    <h5>Er resteren maar @ViewBag.AvailableTickets tickets van dit ticket type.</h5>
+</div>
+
+<p>
+    @Html.ActionLink("Bestel opnieuw", "Bestel", "Ticket", new { @class = "btn btn-primary btn-wide" })
+</p>

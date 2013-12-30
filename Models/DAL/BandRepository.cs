@@ -56,10 +56,10 @@ namespace FestivalSite.Models.DAL
                 {
                     Band band = Create(reader);
                     band.Genres = GenreRepository.GetGenresByBand(genres, band.Id);
+                    reader.Close();
                     return band;
                 }
             }
-            reader.Close();
             return null;
         }
 

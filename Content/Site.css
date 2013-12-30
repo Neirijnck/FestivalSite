@@ -360,13 +360,14 @@ aside {
   position: relative;
   list-style: none;
   overflow: hidden;
-  width: 90%;
+  width: 80%;
   height:450px;
   padding: 0;
   margin: 0 auto;
   margin-top:15px;
     border:5px solid #2C3E50;
   border-radius: 4px;
+        background-color:#2C3E50;
   }
 
 .rslides li {
@@ -388,8 +389,8 @@ aside {
   display: block;
   height: auto;
   float: left;
-  width: 80%;
-  height:80%;
+  margin-left:-43px;
+  width: 90%;
   max-height:600px;
   max-width:900px;
   }
@@ -437,6 +438,20 @@ aside {
     margin:15px;
 }
 
+#NietSuccesvolBesteld{
+    clear:both;
+    width:560px;
+    background-color:#44617d;
+    border:5px solid #2C3E50;
+    border-radius: 4px;
+    margin-bottom:15px;
+}
+
+#NietSuccesvolBesteld h5{
+    font-size:1.3em;
+    margin:15px;
+}
+
 #nieuwsItem{
     float:left;
     background-color:#44617d;
@@ -461,6 +476,13 @@ color:red;
 }
 
 #check{
+    float:left;
+    height:22px;
+    width:22px;
+    margin:25px 20px 20px 20px;
+}
+
+#error{
     float:left;
     height:22px;
     width:22px;
@@ -621,6 +643,10 @@ max-height:500px;
     .detailsKnop{
         margin-left:12px;
     }
+
+.imageButtonGallery {
+    font-size: 2em;
+}
 
     #BandNews{
     clear:both;
@@ -943,29 +969,31 @@ tr.pager td {
 
     /* logo */
     header .site-title {
-        margin: 10px;
-        text-align: center;
+        display: none;
     }
-
+    #logo{
+        text-align:center;
+        margin-left:40%;
+    }
+    #login a {
+        border-radius: 4px 4px 4px 4px;
+    }
     /* login */
     #login {
         font-size: .85em;
         margin: 0 0 12px;
         text-align: center;
     }
-
         #login ul {
             margin: 5px 0;
             padding: 0;
         }
-
         #login li {
             display: inline;
             list-style: none;
             margin: 0;
             padding: 0;
         }
-
     /* menu */
     nav {
         margin-bottom: 5px;
@@ -976,35 +1004,83 @@ tr.pager td {
         padding: 0;
         text-align: center;
     }
-
         ul#menu li {
             margin: 0;
             padding: 0;
         }
-
-
     /* main layout
     ----------------------------------------------------------*/
     .main-content,
     .featured + .main-content {
         background-position: 10px 0;
     }
-
     .content-wrapper {
         padding-right: 10px;
         padding-left: 10px;
     }
-
     .featured .content-wrapper {
         padding: 10px;
     }
-
     /* page content */
     article, aside {
         float: none;
         width: 100%;
     }
 
+    .rslides{
+        height:180px;
+    }
+        .rslides img {
+            margin-left:-15px;
+        }
+        #nieuwsItem{
+            width:95%;
+        }
+        .twitter-timeline{
+            margin-left: 4%;
+        }
+        #Search{
+            display: none;
+        }
+        #zoeken{
+            display:none;
+        }
+        .sort{
+            margin-left:-40%;
+            display:block;
+            margin-top:5px;
+            text-align:center;
+            width:150px;
+        }
+        .content-wrapper h1{
+            text-align:center;
+        }
+        #BandItem{
+            margin-left:-1%;
+        }
+        .title{
+            text-align:center;
+        }
+        .about header{
+            width:100%;
+            text-align:center;
+        }   
+        .contact header{
+            width:100%;
+            text-align:center;
+        }
+        .main-content{
+            text-align:center;
+        }
+        .overzichtsTable{
+            width:100px;
+        }
+        #SuccesvolBesteld{
+            width:100%;
+        }
+        .overzichtsTable{
+            margin-left:20%;
+        }
     /* ordered list */
     ol.round {
         list-style-type: none;
